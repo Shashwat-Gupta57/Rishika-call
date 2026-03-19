@@ -1,0 +1,186 @@
+/* Global Variables for Scrapbook Aesthetic */
+:root {
+  --bg-color: #fdfaf6;
+  --text-dark: #4a4a4a;
+  --text-light: #7a7a7a;
+  --highlight-pink: #ffb7b2;
+  --highlight-blue: #e2f0cb;
+  --highlight-yellow: #ffdac1;
+  --tape-color: rgba(255, 255, 255, 0.4);
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  
+  --font-main: 'Just Another Hand', cursive, sans-serif;
+  --font-clean: 'Nunito', sans-serif;
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Nunito:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23e8e4db" fill-opacity="0.4" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E'); /* Subtle dot pattern */
+  color: var(--text-dark);
+  font-family: var(--font-clean);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+h1, h2, h3, h4, .handwritten {
+  font-family: var(--font-main);
+  letter-spacing: 1px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--highlight-pink);
+  color: var(--text-dark);
+  text-decoration: none;
+  border-radius: 20px;
+  font-family: var(--font-main);
+  font-size: 1.5rem;
+  box-shadow: 2px 4px 10px var(--shadow-color);
+  transition: all 0.3s ease;
+  border: 2px dashed #fff;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.05) rotate(-2deg);
+  box-shadow: 4px 6px 15px var(--shadow-color);
+  background-color: #ff9e9e;
+}
+
+/* Polaroids */
+.polaroid {
+  background: #fff;
+  padding: 10px 10px 30px 10px;
+  box-shadow: 2px 5px 15px var(--shadow-color);
+  border-radius: 2px;
+  display: inline-block;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  background-color: #eee;
+}
+
+.polaroid .caption {
+  font-family: var(--font-main);
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+}
+
+.polaroid:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  z-index: 10;
+}
+
+/* Tape Effect */
+.tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 80px;
+  height: 25px;
+  background-color: var(--tape-color);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  backdrop-filter: blur(2px);
+  z-index: 2;
+  border-radius: 2px;
+}
+
+/* Helper Classes for Tilts */
+.tilt-left-1 { transform: rotate(-3deg); }
+.tilt-left-2 { transform: rotate(-6deg); }
+.tilt-right-1 { transform: rotate(3deg); }
+.tilt-right-2 { transform: rotate(7deg); }
+
+/* Floating Sparkles and Hearts container */
+#fx-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  color: var(--highlight-pink);
+  font-size: 1.5rem;
+  animation: floatUp 5s linear forwards;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.8; }
+  100% { transform: translateY(-100px) scale(1.5) rotate(360deg); opacity: 0; }
+}
+
+/* Section specific styling hooks */
+.hero-section {
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.hero-title {
+  font-size: 4rem;
+  color: #ff7b7b;
+  text-shadow: 2px 2px 0px #fff;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 2.5rem;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+  transform: rotate(1deg);
+}
+
+/* Specific elements that can be reused */
+.sticker {
+  position: absolute;
+  font-size: 3rem;
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
+  z-index: 5;
+}
+
+@media (max-width: 600px) {
+  .hero-title { font-size: 3rem; }
+  .hero-subtitle { font-size: 2rem; }
+  .polaroid img { width: 100%; }
+}
