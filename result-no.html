@@ -72,5 +72,40 @@
       container.appendChild(drop);
     }
   </script>
+  
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBIyIXYNvVhJnSK58rB29K9n7SNnbaoqnc",
+      authDomain: "proposal-apoorva-sarvagy.firebaseapp.com",
+      databaseURL: "https://proposal-apoorva-sarvagy-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "proposal-apoorva-sarvagy",
+      storageBucket: "proposal-apoorva-sarvagy.firebasestorage.app",
+      messagingSenderId: "794226715688",
+      appId: "1:794226715688:web:284222db7af709b2cd591d",
+      measurementId: "G-BZ4R12MR9T"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    
+    // Update path
+    let currentPath = localStorage.getItem('rishika_path') || 'Started';
+    currentPath += ' -> NO';
+    localStorage.setItem('rishika_path', currentPath);
+    
+    let sessionId = localStorage.getItem('rishika_session');
+    if (!sessionId) {
+      sessionId = Date.now().toString();
+      localStorage.setItem('rishika_session', sessionId);
+    }
+
+    set(ref(db, 'rishika-call/' + sessionId), {
+      path: currentPath,
+      timestamp: new Date().toISOString()
+    }).catch(err => console.error("Firebase error: ", err));
+  </script>
 </body>
 </html>
