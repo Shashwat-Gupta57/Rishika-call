@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sad Ending</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #e0e0e0;
+      color: #333;
+    }
+    .sad-text {
+      font-size: 4rem;
+      font-family: var(--font-main);
+      color: #666;
+      margin-top: 15vh;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .sub-text {
+      font-size: 1.8rem;
+      text-align: center;
+      margin: 30px;
+    }
+    img {
+      filter: grayscale(100%);
+    }
+    .rain {
+      position: fixed;
+      width: 2px;
+      height: 20px;
+      background: rgba(0,0,0,0.2);
+      animation: rainFall 0.5s linear infinite;
+      z-index: 0;
+    }
+    @keyframes rainFall {
+      from { transform: translateY(-100px); }
+      to { transform: translateY(100vh); }
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="rain-container"></div>
+
+  <div class="container" style="text-align: center; z-index: 10;">
+    <div class="sad-text tilt-left-1">
+      After 37 photos...<br>
+      After full website...<br>
+      Still no call. 💔
+    </div>
+    
+    <div class="sub-text">
+      Let's just try again!
+    </div>
+
+    <div style="margin-top: 50px;">
+      <a href="final.html" class="btn" style="background-color: #999; color: white;">Try Again (Press YES this time)</a>
+    </div>
+  </div>
+
+  <script>
+    // Rain logic
+    const container = document.getElementById('rain-container');
+    for(let i=0; i<50; i++) {
+      let drop = document.createElement('div');
+      drop.className = 'rain';
+      drop.style.left = Math.random() * 100 + 'vw';
+      drop.style.animationDelay = Math.random() + 's';
+      drop.style.animationDuration = (Math.random() * 0.3 + 0.4) + 's';
+      container.appendChild(drop);
+    }
+  </script>
+</body>
+</html>

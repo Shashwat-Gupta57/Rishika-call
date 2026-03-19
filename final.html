@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Final Question</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .final-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      text-align: center;
+    }
+    .big-question {
+      font-size: 5rem;
+      font-family: var(--font-main);
+      color: #ff6b6b;
+      margin-bottom: 50px;
+      line-height: 1.2;
+      text-shadow: 2px 2px 0px white;
+    }
+    .btn-massive {
+      font-size: 2.5rem;
+      padding: 15px 40px;
+      margin: 20px;
+      border-radius: 40px;
+    }
+    .btn-yes {
+      background-color: #a8e6cf;
+    }
+    .btn-yes:hover {
+      background-color: #7bd5b3;
+    }
+    .btn-no {
+      background-color: #ff6b6b;
+      color: white;
+    }
+    .btn-no:hover {
+      background-color: #ff4747;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container final-container">
+    <div class="polaroid tilt-left-1" style="position: absolute; top: 0; left: 10%; width: 180px; z-index: -1;">
+      <div class="tape"></div>
+      <img src="res/photo-35.png" alt="Us">
+    </div>
+
+    <div class="polaroid tilt-right-2" style="position: absolute; bottom: 0; right: 10%; width: 220px; z-index: -1;">
+      <div class="tape"></div>
+      <img src="res/photo-36.png" alt="Us again">
+    </div>
+
+    <div class="big-question tilt-right-1">
+      Rishika Bhola...<br>
+      Final question.
+    </div>
+    
+    <div style="font-size: 2rem; margin-bottom: 40px; background: white; padding: 20px; border-radius: 10px; box-shadow: 2px 2px 10px var(--shadow-color);">
+      Will you do Insta audio call or not?
+    </div>
+
+    <div>
+      <a href="result-yes.html" class="btn btn-massive btn-yes">YES (Finally!)</a>
+      <a href="result-no.html" class="btn btn-massive btn-no">NO (I am monster)</a>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

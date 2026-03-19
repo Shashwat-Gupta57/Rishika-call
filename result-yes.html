@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YAYYYYY</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #fdffea;
+    }
+    .success-text {
+      font-size: 4rem;
+      font-family: var(--font-main);
+      color: #ff6b6b;
+      margin-top: 10vh;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .sub-text {
+      font-size: 2rem;
+      text-align: center;
+      margin: 30px;
+    }
+    /* Simple CSS Confetti */
+    .confetti {
+      width: 15px;
+      height: 15px;
+      background-color: #ffb7b2;
+      position: absolute;
+      animation: fall 3s infinite linear;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="confetti-container"></div>
+
+  <div class="container" style="text-align: center; z-index: 10;">
+    <div class="success-text bounce">
+      Respect restored.<br>
+      Friendship saved.<br>
+      Website successful! 🎉
+    </div>
+    
+    <div class="sub-text">
+      Now go and actually open Insta right now.<br>
+      No more maths excuses.
+    </div>
+
+    <div class="polaroid tilt-right-1" style="display: inline-block; margin-top: 20px; width: 300px;">
+      <div class="tape"></div>
+      <img src="res/photo-37.png" alt="Happy ending">
+    </div>
+  </div>
+
+  <script>
+    // Confetti logic
+    const colors = ['#ffb7b2', '#e2f0cb', '#ffdac1', '#a8e6cf', '#ff9a9e'];
+    const container = document.getElementById('confetti-container');
+    
+    for(let i=0; i<100; i++) {
+      let conf = document.createElement('div');
+      conf.className = 'confetti';
+      conf.style.left = Math.random() * 100 + 'vw';
+      conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      conf.style.animationDelay = (Math.random() * 3) + 's';
+      conf.style.animationDuration = (Math.random() * 2 + 2) + 's';
+      container.appendChild(conf);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Drama</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #1a1a2e; /* Darker dramatic mode */
+      color: #eaeaea;
+      transition: background-color 1s ease;
+    }
+    
+    .drama-text {
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 40px auto;
+      max-width: 600px;
+      line-height: 1.5;
+      font-family: var(--font-clean);
+      font-weight: 300;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .drama-text:nth-child(2) { animation-delay: 1.5s; }
+    .drama-text:nth-child(3) { animation-delay: 3s; font-style: italic; color: #ff9a9e; }
+    .drama-text:nth-child(4) { animation-delay: 4.5s; font-family: var(--font-main); font-size: 4rem; }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .polaroid.drama-pic {
+      position: absolute;
+      width: 250px;
+      opacity: 0;
+      animation: fadeInPic 1s forwards;
+      z-index: -1;
+      filter: grayscale(80%);
+    }
+
+    @keyframes fadeInPic {
+      to { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Dark fx container override -->
+  <div id="fx-container"></div>
+  
+  <div class="container" style="padding-top: 10vh;">
+    
+    <div class="drama-text">
+      I opened Insta.<br>
+      I checked messages.
+    </div>
+    
+    <div class="drama-text">
+      I checked again.<br>
+      Still no audio call.
+    </div>
+    
+    <div class="drama-text">
+      I trusted you Rishika...
+    </div>
+
+    <div class="drama-text">
+      But still hope is there ✨
+    </div>
+
+    <div class="polaroid drama-pic tilt-left-1" style="top: 20%; left: 0%; animation-delay: 0.5s;">
+      <div class="tape"></div>
+      <img src="res/photo-33.png" alt="Sad">
+    </div>
+
+    <div class="polaroid drama-pic tilt-right-2" style="bottom: 10%; right: 0%; animation-delay: 2s; width: 300px;">
+      <div class="tape"></div>
+      <img src="res/photo-34.png" alt="Hope">
+    </div>
+
+    <div style="text-align: center; margin-top: 80px; opacity: 0; animation: fadeInUp 1s forwards; animation-delay: 6s;">
+      <a href="final.html" class="btn" style="background-color: var(--highlight-pink); box-shadow: 0 0 20px #ffb7b2;">The Final Question ➡️</a>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
